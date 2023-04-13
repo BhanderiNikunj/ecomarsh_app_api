@@ -29,7 +29,7 @@ class ProductModel {
       p_image: p_image,
       p_name: p_name,
       p_offer: p_offer,
-      p_price: p_offer,
+      p_price: p_price,
       p_rate: p_rate,
     );
 
