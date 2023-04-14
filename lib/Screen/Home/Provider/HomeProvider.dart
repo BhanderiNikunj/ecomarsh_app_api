@@ -11,4 +11,33 @@ class HomeProvider extends ChangeNotifier
       product = productModel;
       return product;
     }
+
+    Future<void> PostApiCall() async {
+      ApiHelper apiHelper = ApiHelper();
+      bool data = await apiHelper.creatData();
+      notifyListeners();
+      if(data == true)
+        {
+          print("Success");
+        }
+      else
+        {
+          print("Fail");
+        }
+    }
+
+
+    Future<void> delate(String index,BuildContext context) async {
+      ApiHelper apiHelper = ApiHelper();
+      bool data = await apiHelper.Delate(index);
+      notifyListeners();
+      if(data)
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Delete Success")));
+        }
+      else
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Delete Failed")));
+        }
+    }
 }
