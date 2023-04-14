@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ecomarsh_app/Screen/Home/Model/HomeModel.dart';
+import 'package:ecomarsh_app/Screen/Product/Model/HomeModel.dart';
 import 'package:http/http.dart' as http;
 
 class ApiHelper {
@@ -23,7 +23,8 @@ class ApiHelper {
     return productModel;
   }
 
-  Future<bool> creatData() async {
+  Future<bool> creatData(String name, String rate, String price, String offer,
+      String desc, String category) async {
     String Link =
         "https://apidatahub.000webhostapp.com/MyShop/API/adddataapi.php";
 
@@ -32,12 +33,12 @@ class ApiHelper {
     var result = await http.post(
       uri,
       body: {
-        "p_name": "Asus VivoBook",
-        "p_rate": "5",
-        "p_price": "70000",
-        "p_offer": "10000",
-        "p_desc": "Nice Leptop",
-        "p_category": "Leptop",
+        "p_name": name,
+        "p_rate": rate,
+        "p_price": price,
+        "p_offer": offer,
+        "p_desc": desc,
+        "p_category": category,
       },
     );
 
